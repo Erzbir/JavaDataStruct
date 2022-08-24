@@ -6,9 +6,24 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 public class ArrayList<E> implements List<E> {
+    private static final int DEFAULT_CAPACITY = 10;
     private int size;
     private E[] data;
-    private static final int DEFAULT_CAPACITY = 10;
+
+    public ArrayList() {
+        this.size = 0;
+        this.data = (E[]) new Object[DEFAULT_CAPACITY];
+    }
+
+    public ArrayList(E[] arr) {
+        if (arr == null) {
+            throw new IllegalArgumentException("arr is null");
+        }
+        this.data = (E[]) new Object[DEFAULT_CAPACITY];
+        for (E e : arr) {
+            add(e);
+        }
+    }
 
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
@@ -29,21 +44,6 @@ public class ArrayList<E> implements List<E> {
         });
         System.out.println(list);
         System.out.println(list.sublist(0, 4));
-    }
-
-    public ArrayList() {
-        this.size = 0;
-        this.data = (E[]) new Object[DEFAULT_CAPACITY];
-    }
-
-    public ArrayList(E[] arr) {
-        if (arr == null) {
-            throw new IllegalArgumentException("arr is null");
-        }
-        this.data = (E[]) new Object[DEFAULT_CAPACITY];
-        for (E e : arr) {
-            add(e);
-        }
     }
 
     @Override
@@ -186,20 +186,6 @@ public class ArrayList<E> implements List<E> {
         return new ArrayListIterator();
     }
 
-    private class ArrayListIterator implements Iterator<E> {
-        private int cur = 0;
-
-        @Override
-        public boolean hasNext() {
-            return cur < size;
-        }
-
-        @Override
-        public E next() {
-            return data[cur++];
-        }
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null) {
@@ -240,5 +226,19 @@ public class ArrayList<E> implements List<E> {
         }
         sb.append(']');
         return sb.toString();
+    }
+
+    private class ArrayListIterator implements Iterator<E> {
+        private int cur = 0;
+
+        @Override
+        public boolean hasNext() {
+            return cur < size;
+        }
+
+        @Override
+        public E next() {
+            return data[cur++];
+        }
     }
 }

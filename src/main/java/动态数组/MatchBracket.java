@@ -15,8 +15,7 @@ public class MatchBracket {
                 char p = stack.peek();
                 if (p - c == -1 || p - c == -2) {
                     stack.pop();
-                }
-                else {
+                } else {
                     stack.push(c);
                 }
 

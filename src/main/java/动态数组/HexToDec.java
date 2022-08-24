@@ -18,6 +18,7 @@ public class HexToDec {
         }
         return num;
     }
+
     private static int getNumber(char c) {
         if (c >= '0' && c <= '9') {
             return c - '0';

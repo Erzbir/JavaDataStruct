@@ -21,6 +21,7 @@ public class InfixCalculator {
         System.out.println(Arrays.toString(tokens));
         return -1;
     }
+
     private static String format(String expression) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < expression.length(); i++) {
