@@ -16,37 +16,39 @@ public class InfixCalculator {
         ArrayStack<Integer> numberStack = new ArrayStack<>();
         for (String token : tokens) {
             if (token.length() != 0) {
-                if (token.equals("+") || token.equals("-")) {
-                    // 如果是空 直接进
-                    // 如果不是空栈顶是( 直接进
-                    // 如果不是空栈顶是 + - * / 需要处理栈顶 直到进栈为止
-                    while (!operatorStack.isEmpty() &&
-                            (operatorStack.peek() == '+' ||
-                            operatorStack.peek() == '-' ||
-                            operatorStack.peek() == '/' ||
-                            operatorStack.peek() == '*')) {
-                        process(numberStack, operatorStack);
+                switch (token) {
+                    case "+", "-" -> {
+                        // 如果是空 直接进
+                        // 如果不是空栈顶是( 直接进
+                        // 如果不是空栈顶是 + - * / 需要处理栈顶 直到进栈为止
+                        while (!operatorStack.isEmpty() &&
+                                (operatorStack.peek() == '+' ||
+                                        operatorStack.peek() == '-' ||
+                                        operatorStack.peek() == '/' ||
+                                        operatorStack.peek() == '*')) {
+                            process(numberStack, operatorStack);
+                        }
+                        operatorStack.push(token.charAt(0));
                     }
-                    operatorStack.push(token.charAt(0));
-                } else if (token.equals("*") || token.equals("/")) {
-                    // 如果是空 直接进
-                    // 如果不是空 栈顶是(直接进
-                    // 如果不是空 栈顶是+ - 直接进
-                    // 如果不是空 栈顶是 * / 需要处理栈顶 直到能进栈为止
-                    while (!operatorStack.isEmpty() && (operatorStack.peek() == '*' || operatorStack.peek() == '/')) {
-                        process(numberStack, operatorStack);
+                    case "*", "/" -> {
+                        // 如果是空 直接进
+                        // 如果不是空 栈顶是(直接进
+                        // 如果不是空 栈顶是+ - 直接进
+                        // 如果不是空 栈顶是 * / 需要处理栈顶 直到能进栈为止
+                        while (!operatorStack.isEmpty() && (operatorStack.peek() == '*' || operatorStack.peek() == '/')) {
+                            process(numberStack, operatorStack);
+                        }
+                        operatorStack.push(token.charAt(0));
                     }
-                    operatorStack.push(token.charAt(0));
-                } else if (token.equals("(")) {
-                    operatorStack.push('(');
-                } else if (token.equals(")")) {
-                    // 只要当前栈顶不是 ( 都处理掉
-                    while (operatorStack.peek() != '(') {
-                        process(numberStack, operatorStack);
+                    case "(" -> operatorStack.push('(');
+                    case ")" -> {
+                        // 只要当前栈顶不是 ( 都处理掉
+                        while (operatorStack.peek() != '(') {
+                            process(numberStack, operatorStack);
+                        }
+                        operatorStack.pop();
                     }
-                    operatorStack.pop();
-                } else {
-                    numberStack.push(Integer.valueOf(token));
+                    default -> numberStack.push(Integer.valueOf(token));
                 }
             }
         }
