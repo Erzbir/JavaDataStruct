@@ -1,6 +1,6 @@
 package 接口;
 
-public interface Queue<E> {
+public interface Queue<E> extends Iterable<E> {
     public int size();
     public boolean isEmpty();
     public void offer(E element);

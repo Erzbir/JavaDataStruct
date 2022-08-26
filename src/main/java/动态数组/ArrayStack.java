@@ -54,6 +54,11 @@ public class ArrayStack<E> implements Stack<E> {
     }
 
     @Override
+    public Iterator<E> iterator() {
+        return list.iterator();
+    }
+
+    @Override
     public String toString() {
         return list.toString();
     }

@@ -1,6 +1,6 @@
 package 接口;
 
-public interface Stack<E> {
+public interface Stack<E> extends Iterable<E> {
     public int size();
 
     public boolean isEmpty();

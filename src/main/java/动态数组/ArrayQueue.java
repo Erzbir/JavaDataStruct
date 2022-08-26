@@ -1,6 +1,9 @@
 package 动态数组;
 
+import org.jetbrains.annotations.NotNull;
 import 接口.Queue;
+
+import java.util.Iterator;
 
 public class ArrayQueue<E> implements Queue<E> {
     private ArrayList<E> list;
@@ -18,7 +21,7 @@ public class ArrayQueue<E> implements Queue<E> {
 
     @Override
     public boolean isEmpty() {
-        return list.size() == 0;
+        return list.isEmpty();
     }
 
     @Override
@@ -59,5 +62,10 @@ public class ArrayQueue<E> implements Queue<E> {
             return list.equals(other.list);
         }
         return false;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return list.iterator();
     }
 }
