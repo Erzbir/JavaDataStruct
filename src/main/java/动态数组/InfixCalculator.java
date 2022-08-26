@@ -75,7 +75,7 @@ public class InfixCalculator {
         }
     }
 
-    private static String format(String expression) {
+    static String format(String expression) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < expression.length(); i++) {
             char c = expression.charAt(i);
