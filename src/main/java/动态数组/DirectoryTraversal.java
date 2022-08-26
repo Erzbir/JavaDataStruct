@@ -6,7 +6,7 @@ public class DirectoryTraversal {
     public static void main(String[] args) {
         String path = "/Users/erzbir/Desktop/IntelliJ Java/JavaDataStruct";
         File dir = new File(path);
-        ArrayLoopQueue<File> queue = new ArrayLoopQueue<>();
+        ArrayDeque<File> queue = new ArrayDeque<>();
         queue.offer(dir);
         while (!queue.isEmpty()) {
             File curDir = queue.poll();

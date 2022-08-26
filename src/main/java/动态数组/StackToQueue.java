@@ -66,7 +66,7 @@ class QueueImplByStack<E> implements Queue<E> {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<E> iterator() {
         return stackA.iterator();
     }
 }
