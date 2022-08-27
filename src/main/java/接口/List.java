@@ -29,5 +29,4 @@ public interface List<E> extends Iterable<E> {
 
     public List<E> sublist(int fromIndex, int toIndex);
 
-    public void swap(int i, int j);
 }

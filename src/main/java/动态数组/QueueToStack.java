@@ -1,7 +1,6 @@
 package 动态数组;
 
 
-import 接口.Queue;
 import 接口.Stack;
 
 import java.util.Iterator;
@@ -42,6 +41,7 @@ class StackImplByQueue<E> implements Stack<E> {
     public void push(E element) {
         if (isEmpty()) {
             queueA.offer(element);
+            return;
         }
         if (queueA.isEmpty()) {
             queueB.offer(element);

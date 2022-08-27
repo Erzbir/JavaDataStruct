@@ -1,7 +1,5 @@
 package 动态数组;
 
-import java.util.Arrays;
-
 public class InfixCalculator {
     public static void main(String[] args) {
         String expression = "(10+20/2*3)/2+8";
@@ -79,7 +77,7 @@ public class InfixCalculator {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < expression.length(); i++) {
             char c = expression.charAt(i);
-            if (c == '+' || c == '-' || c == '/' || c == '*' || c == '(' || c == ')' ) {
+            if (c == '+' || c == '-' || c == '/' || c == '*' || c == '(' || c == ')') {
                 sb.append(' ');
                 sb.append(c);
                 sb.append(' ');

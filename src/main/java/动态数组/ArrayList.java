@@ -174,8 +174,7 @@ public class ArrayList<E> implements List<E> {
         return sublist;
     }
 
-    @Override
-    public void swap(int i, int j) {
+    private void swap(int i, int j) {
         E temp = data[i];
         data[i] = data[j];
         data[j] = temp;

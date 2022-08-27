@@ -7,6 +7,10 @@ import java.util.Iterator;
 public class ArrayStack<E> implements Stack<E> {
     private ArrayList<E> list;
 
+    public ArrayStack() {
+        list = new ArrayList<>();
+    }
+
     public static void main(String[] args) {
         ArrayStack<Integer> stack = new ArrayStack<>();
         stack.push(1);
@@ -17,10 +21,6 @@ public class ArrayStack<E> implements Stack<E> {
             System.out.print(stack.pop());
         }
         System.out.println(stack);
-    }
-
-    public ArrayStack() {
-        list = new ArrayList<>();
     }
 
     @Override

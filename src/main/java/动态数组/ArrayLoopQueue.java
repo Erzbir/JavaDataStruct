@@ -1,16 +1,22 @@
 package 动态数组;
 
-import org.jetbrains.annotations.NotNull;
 import 接口.Queue;
 
 import java.util.Iterator;
 
 public class ArrayLoopQueue<E> implements Queue<E> {
+    private static int DEFAULT_CAPACITY = 10;
     private E[] data;
     private int front;
     private int rear;
     private int size;
-    private static int DEFAULT_CAPACITY = 10;
+
+    public ArrayLoopQueue() {
+        data = (E[]) new Object[DEFAULT_CAPACITY + 1];
+        front = 0;
+        rear = 0;
+        size = 0;
+    }
 
     public static void main(String[] args) {
         ArrayLoopQueue<Integer> queue = new ArrayLoopQueue<>();
@@ -41,13 +47,6 @@ public class ArrayLoopQueue<E> implements Queue<E> {
         queue.poll();
         queue.poll();
         System.out.println(queue);
-    }
-
-    public ArrayLoopQueue() {
-        data = (E[]) new Object[DEFAULT_CAPACITY + 1];
-        front = 0;
-        rear = 0;
-        size = 0;
     }
 
     @Override
@@ -159,6 +158,7 @@ public class ArrayLoopQueue<E> implements Queue<E> {
 
     private class ArrayLoopQueueIterator implements Iterator<E> {
         private int cur = front;
+
         @Override
         public boolean hasNext() {
             return cur != rear;

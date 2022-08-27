@@ -1,18 +1,16 @@
 package 动态数组;
 
-import org.jetbrains.annotations.NotNull;
 import 接口.Deque;
-import 接口.Queue;
 import 接口.Stack;
 
 import java.util.Iterator;
 
 public class ArrayDeque<E> implements Deque<E>, Stack<E> {
+    private static int DEFAULT_CAPACITY = 10;
     private E[] data;
     private int front;
     private int rear;
     private int size;
-    private static int DEFAULT_CAPACITY = 10;
 
     public ArrayDeque() {
         data = (E[]) new Object[DEFAULT_CAPACITY + 1];
@@ -185,6 +183,7 @@ public class ArrayDeque<E> implements Deque<E>, Stack<E> {
         }
         return false;
     }
+
     @Override
     public Iterator<E> iterator() {
         return new ArrayDequeIterator();

@@ -16,8 +16,7 @@ public class DirectoryTraversal {
                 for (File file : files) {
                     if (file.isFile()) {
                         System.out.println(file.getName());
-                    }
-                    else {
+                    } else {
                         queue.offer(file);
                     }
                 }

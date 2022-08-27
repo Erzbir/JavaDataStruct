@@ -1,6 +1,5 @@
 package 动态数组;
 
-import org.jetbrains.annotations.NotNull;
 import 接口.Queue;
 
 import java.util.Iterator;
