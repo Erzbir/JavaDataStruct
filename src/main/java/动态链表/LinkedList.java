@@ -346,21 +346,16 @@ public class LinkedList<E> implements List<E>, Deque<E>, Stack<E>, Queue<E> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append('[');
-        if (isEmpty()) {
-            sb.append(']');
-        } else {
-            Node p = head;
-            while (true) {
-                sb.append(p.data);
-                if (p == tail) {
-                    sb.append(']');
-                    break;
-                }
-                sb.append(',');
-                sb.append(' ');
-                p = p.next;
+        Node p = head;
+        while (true) {
+            sb.append(p.data);
+            if (p != tail) {
+                sb.append(", ");
+                break;
             }
+            p = p.next;
         }
+        sb.append(']');
         return sb.toString();
     }
 
