@@ -4,7 +4,7 @@ import 接口.Queue;
 
 import java.util.Iterator;
 
-public class ArrayQueue <E> implements Queue<E> {
+public class ArrayQueue<E> implements Queue<E> {
     private ArrayList<E> list;
 
 
