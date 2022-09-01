@@ -58,4 +58,67 @@ public class NQueen {
         }
         return true;
     }
+
+    /**
+     * @Author: Erzbir
+     * @Date: 2022/8/30 16:05
+     */
+    //对比二分查找与插值查找
+    public static class TestBinaryAndInterpolation {
+        private static int bCount = 0;
+        private static int iCount = 0;
+
+        public static void main(String[] args) {
+            //分布很均匀
+    //        int[] arr = new int[10];
+    //        for (int i = 0; i < arr.length; i++) {
+    //            arr[i] = 2 * i;
+    //        }
+
+            //极度分布不均
+            int[] arr = {1, 12, 112, 236, 5432, 98765, 100000, 123456,6666666, 99999999, 101010101};
+            int key = 100000;
+            int index = binarySearchRecursion(arr, 0, arr.length - 1, key);
+            System.out.println(index);
+            index = interpolationSearchRecursion(arr, 0, arr.length - 1, key);
+            System.out.println(index);
+            System.out.println("bCount = " + bCount);
+            System.out.println("iCount = " + iCount);
+        }
+
+        private static int interpolationSearchRecursion(int[] arr, int low, int high, int key) {
+            iCount++;
+            if (high < low) {
+                return -1;
+            }
+            int mid = low + (int) (1.0 * (key - arr[low]) / (arr[high] - arr[low]) * (high - low));
+            System.out.println("mid = " + mid);
+            if (mid > high || mid < low) {
+                return -1;
+            }
+            if (arr[mid] == key) {
+                return mid;
+            } else if (arr[mid] < key) {
+                return interpolationSearchRecursion(arr, mid + 1, high, key);
+            } else {
+                return interpolationSearchRecursion(arr, low, mid - 1, key);
+            }
+        }
+
+        private static int binarySearchRecursion(int[] arr, int low, int high, int key) {
+            bCount++;
+            if (high < low) {
+                return -1;
+            }
+            int mid = low + (high - low) / 2;
+            if (arr[mid] == key) {
+                return mid;
+            }
+            if (arr[mid] < key) {
+                return binarySearchRecursion(arr, mid + 1, high, key);
+            } else {
+                return binarySearchRecursion(arr, low, mid - 1, key);
+            }
+        }
+    }
 }
