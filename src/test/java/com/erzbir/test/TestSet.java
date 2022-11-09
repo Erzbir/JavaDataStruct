@@ -1,9 +1,9 @@
 package com.erzbir.test;
 
-import com.erzbir.接口.Set;
-import com.erzbir.树.FileOperation;
-import com.erzbir.树.LinkedSet;
-import com.erzbir.树.TreeSet;
+import com.erzbir.dataStruct.inter.Set;
+import com.erzbir.dataStruct.Tree.FileOperation;
+import com.erzbir.dataStruct.Tree.LinkedSet;
+import com.erzbir.dataStruct.Tree.TreeSet;
 
 import java.util.ArrayList;
 import java.util.Comparator;

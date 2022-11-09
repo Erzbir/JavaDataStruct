@@ -1,9 +1,9 @@
 package com.erzbir.test;
 
-import com.erzbir.接口.Map;
-import com.erzbir.树.AVLTreeMap;
-import com.erzbir.树.FileOperation;
-import com.erzbir.树.TreeMap;
+import com.erzbir.dataStruct.inter.Map;
+import com.erzbir.dataStruct.Tree.AVLTreeMap;
+import com.erzbir.dataStruct.Tree.FileOperation;
+import com.erzbir.dataStruct.Tree.TreeMap;
 
 import java.util.ArrayList;
 import java.util.Comparator;

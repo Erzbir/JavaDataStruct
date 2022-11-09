@@ -1,5 +1,6 @@
 package com.erzbir.test;
 
+import com.erzbir.dataStruct.SortAndSearch.*;
 import com.erzbir.排序与查找.*;
 
 import java.util.Random;

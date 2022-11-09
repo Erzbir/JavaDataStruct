@@ -1,6 +1,6 @@
 package com.erzbir.test;
 
-import com.erzbir.排序与查找.QuickSortThreeWay;
+import com.erzbir.dataStruct.SortAndSearch.QuickSortThreeWay;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;

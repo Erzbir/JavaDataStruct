@@ -1,6 +1,6 @@
 package com.erzbir.test;
 
-import com.erzbir.树.BinarySearchTree;
+import com.erzbir.dataStruct.Tree.BinarySearchTree;
 
 /**
  * @Author: Erzbir
